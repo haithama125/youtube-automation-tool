@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VidFactory AI — Full-length AI YouTube videos for $5</title>
+<meta name="description" content="10-20 minute finance explainer videos with custom visuals, voiceover, and captions — generated end to end." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg:           #0a0a0a;
+    --bg-elev:      #121212;
+    --bg-card:      #171717;
+    --border:       rgba(255, 255, 255, 0.07);
+    --border-strong:rgba(255, 255, 255, 0.14);
+    --text:         #f5f4f0;
+    --text-muted:   rgba(245, 244, 240, 0.6);
+    --text-dim:     rgba(245, 244, 240, 0.36);
+    --accent:       #f5a623;
+    --accent-hover: #ffb732;
+    --accent-soft:  rgba(245, 166, 35, 0.12);
+    --accent-glow:  rgba(245, 166, 35, 0.35);
+    --good:         #4ade80;
+    --max:          1200px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    font-feature-settings: 'ss01', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
+    line-height: 1.55;
+    overflow-x: hidden;
+  }
+
+  /* Subtle film grain over the whole page */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 200;
+    opacity: 0.35;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+  }
+
+  ::selection { background: var(--accent); color: #0a0a0a; }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* TYPOGRAPHY */
+  h1, h2, h3, .display {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.04;
+    color: var(--text);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-glow);
+  }
+
+  /* CONTAINER */
+  .container {
+    width: 100%;
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* NAVIGATION */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.72);
+    backdrop-filter: blur(18px) saturate(1.2);
+    -webkit-backdrop-filter: blur(18px) saturate(1.2);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 28px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.08rem;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .logo-mark {
+    width: 24px; height: 24px;
+    background: var(--accent);
+    display: inline-grid;
+    place-items: center;
+    box-shadow: 0 0 18px rgba(245, 166, 35, 0.35);
+  }
+  .logo-mark::after {
+    content: '';
+    width: 0; height: 0;
+    border-left: 7px solid #0a0a0a;
+    border-top: 4.5px solid transparent;
+    border-bottom: 4.5px solid transparent;
+    margin-left: 2px;
+  }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 22px;
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0a0a;
+    box-shadow: 0 0 0 0 var(--accent-glow);
+  }
+  .btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px -6px var(--accent-glow);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border-strong);
+  }
+  .btn-secondary:hover {
+    border-color: var(--text);
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .btn-large { padding: 18px 28px; font-size: 1rem; }
+  .btn-nav { padding: 10px 18px; font-size: 0.85rem; }
+  .btn-arrow::after {
+    content: '→';
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1em;
+    transition: transform 0.18s ease;
+  }
+  .btn-arrow:hover::after { transform: translateX(4px); }
+
+  /* HERO */
+  .hero {
+    padding: 110px 0 130px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, #000 30%, transparent 75%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    position: relative;
+    max-width: 980px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 28px;
+  }
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 16px;
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 36px;
+    background: rgba(255, 255, 255, 0.015);
+  }
+  .pulse {
+    width: 8px; height: 8px;
+    background: var(--good);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.6);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.5; transform: scale(0.85); }
+  }
+  .hero h1 {
+    font-size: clamp(2.6rem, 6.2vw, 5.2rem);
+    margin-bottom: 26px;
+  }
+  .hero h1 .accent {
+    color: var(--accent);
+    position: relative;
+    display: inline-block;
+  }
+  .hero h1 .accent::after {
+    content: '';
+    position: absolute;
+    left: 4%; right: 4%;
+    bottom: -2px;
+    height: 3px;
+    background: var(--accent);
+    opacity: 0.35;
+  }
+  .hero-sub {
+    font-size: clamp(1.05rem, 1.6vw, 1.22rem);
+    color: var(--text-muted);
+    max-width: 640px;
+    margin: 0 auto 42px;
+    line-height: 1.55;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .trust {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 110px 0;
+    position: relative;
+  }
+  .section-head {
+    text-align: center;
+    margin-bottom: 64px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section-head h2 {
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    margin-bottom: 14px;
+  }
+  .section-head p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+  }
+
+  /* VIDEO */
+  .video-frame {
+    max-width: 940px;
+    margin: 0 auto;
+    position: relative;
+    border: 1px solid var(--border-strong);
+    background: var(--bg-elev);
+    padding: 14px;
+  }
+  .video-frame::before,
+  .video-frame::after,
+  .video-corners > span {
+    position: absolute;
+    width: 14px; height: 14px;
+    border: 1px solid var(--accent);
+    pointer-events: none;
+  }
+  .video-frame::before {
+    content: '';
+    top: -1px; left: -1px;
+    border-right: none; border-bottom: none;
+  }
+  .video-frame::after {
+    content: '';
+    top: -1px; right: -1px;
+    border-left: none; border-bottom: none;
+  }
+  .video-corners span:nth-child(1) {
+    bottom: -1px; left: -1px;
+    border-right: none; border-top: none;
+  }
+  .video-corners span:nth-child(2) {
+    bottom: -1px; right: -1px;
+    border-left: none; border-top: none;
+  }
+  .video-embed {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    background: #000;
+  }
+  .video-embed iframe,
+  .video-embed video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    background: #000;
+  }
+  .video-caption {
+    text-align: center;
+    margin-top: 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* STEPS */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .step {
+    background: var(--bg);
+    padding: 48px 36px;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.2s ease;
+    position: relative;
+  }
+  .step:hover { background: var(--bg-elev); }
+  .step-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: clamp(3.5rem, 6vw, 5rem);
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 28px;
+    letter-spacing: -0.05em;
+  }
+  .step h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+  .step p {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+  }
+
+  /* FEATURES */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .feature {
+    padding: 32px 28px;
+    border: 1px solid var(--border);
+    background: var(--bg-elev);
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    position: relative;
+  }
+  .feature:hover {
+    border-color: var(--border-strong);
+    background: var(--bg-card);
+    transform: translateY(-2px);
+  }
+  .feature-mark {
+    display: inline-grid;
+    place-items: center;
+    width: 36px; height: 36px;
+    color: var(--accent);
+    font-size: 1.25rem;
+    margin-bottom: 22px;
+    background: var(--accent-soft);
+    border: 1px solid rgba(245, 166, 35, 0.25);
+  }
+  .feature h3 {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  .feature p {
+    color: var(--text-muted);
+    font-size: 0.93rem;
+  }
+
+  /* PRICING */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .price-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    padding: 42px 36px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .price-card.highlight {
+    border-color: var(--accent);
+    background:
+      linear-gradient(180deg, rgba(245, 166, 35, 0.05) 0%, var(--bg-elev) 70%);
+  }
+  .price-badge {
+    position: absolute;
+    top: -1px; right: 24px;
+    background: var(--accent);
+    color: #0a0a0a;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    font-weight: 500;
+  }
+  .price-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 18px;
+  }
+  .price {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: clamp(3.2rem, 5vw, 4.2rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    margin-bottom: 6px;
+  }
+  .price-unit {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 28px;
+    letter-spacing: 0.04em;
+  }
+  .price-list {
+    list-style: none;
+    margin-bottom: 28px;
+    flex-grow: 1;
+  }
+  .price-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+  }
+  .price-list li:last-child { border-bottom: none; }
+  .price-list li::before {
+    content: '→';
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .pricing-note {
+    text-align: center;
+    margin-top: 36px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  /* FAQ */
+  .faq-list {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .faq-item { border-top: 1px solid var(--border); }
+  .faq-item:last-child { border-bottom: 1px solid var(--border); }
+  .faq-q {
+    padding: 26px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.15s ease;
+  }
+  .faq-q:hover { color: var(--accent); }
+  .faq-toggle {
+    position: relative;
+    width: 22px; height: 22px;
+    flex-shrink: 0;
+  }
+  .faq-toggle::before,
+  .faq-toggle::after {
+    content: '';
+    position: absolute;
+    background: currentColor;
+    top: 50%; left: 50%;
+    transition: transform 0.3s ease;
+  }
+  .faq-toggle::before {
+    width: 12px; height: 1.5px;
+    transform: translate(-50%, -50%);
+  }
+  .faq-toggle::after {
+    width: 1.5px; height: 12px;
+    transform: translate(-50%, -50%);
+  }
+  .faq-item.open .faq-toggle::after {
+    transform: translate(-50%, -50%) scaleY(0);
+  }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .faq-a p { padding-right: 36px; }
+  .faq-item.open .faq-a {
+    max-height: 360px;
+    padding: 0 0 28px 0;
+  }
+  .faq-a a { color: var(--accent); border-bottom: 1px solid rgba(245, 166, 35, 0.3); }
+
+  /* FINAL CTA */
+  .cta-final {
+    padding: 120px 28px;
+    text-align: center;
+    background: var(--bg-elev);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-final::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(245, 166, 35, 0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-final-inner {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .cta-final h2 {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    margin-bottom: 18px;
+  }
+  .cta-final p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 36px;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 32px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: var(--max);
+    margin: 0 auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+  }
+  footer .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+  footer a {
+    color: var(--text-muted);
+    transition: color 0.15s ease;
+  }
+  footer a:hover { color: var(--accent); }
+
+  /* MODAL */
+  .modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 20px;
+    overflow-y: auto;
+  }
+  .modal.open { display: flex; animation: fadeIn 0.2s ease; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .modal-card {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border-strong);
+    padding: 44px 44px 36px;
+    margin: auto 0;
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @keyframes slideUp {
+    from { transform: translateY(14px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+  .modal-corners > span {
+    position: absolute;
+    width: 14px; height: 14px;
+    border: 1px solid var(--accent);
+    pointer-events: none;
+  }
+  .modal-corners > span:nth-child(1) { top: -1px; left: -1px;     border-right: none; border-bottom: none; }
+  .modal-corners > span:nth-child(2) { top: -1px; right: -1px;    border-left: none;  border-bottom: none; }
+  .modal-corners > span:nth-child(3) { bottom: -1px; left: -1px;  border-right: none; border-top: none; }
+  .modal-corners > span:nth-child(4) { bottom: -1px; right: -1px; border-left: none;  border-top: none; }
+  .modal-close {
+    position: absolute;
+    top: 10px; right: 10px;
+    width: 36px; height: 36px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: color 0.15s;
+  }
+  .modal-close:hover { color: var(--accent); }
+  .modal-head { margin-bottom: 26px; }
+  .modal-head h2 {
+    font-size: 1.7rem;
+    margin: 10px 0 6px;
+  }
+  .modal-sub {
+    color: var(--text-muted);
+    font-size: 0.94rem;
+  }
+
+  /* FORM */
+  .field { margin-bottom: 18px; }
+  .field label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .field label .hint {
+    color: var(--text-dim);
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.85em;
+    margin-left: 4px;
+  }
+  .field input[type="text"],
+  .field input[type="email"],
+  .field textarea {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border-strong);
+    color: var(--text);
+    padding: 12px 14px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    outline: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+  }
+  .field input::placeholder,
+  .field textarea::placeholder { color: var(--text-dim); }
+  .field input:focus,
+  .field textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.16);
+  }
+  .field textarea { resize: vertical; min-height: 76px; font-family: 'Inter Tight', sans-serif; }
+
+  .radio-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .radio { position: relative; cursor: pointer; }
+  .radio input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .radio span {
+    display: block;
+    text-align: center;
+    padding: 11px 12px;
+    border: 1px solid var(--border-strong);
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    transition: all 0.15s ease;
+    font-family: 'Inter Tight', sans-serif;
+  }
+  .radio:hover span {
+    color: var(--text);
+    border-color: var(--text);
+  }
+  .radio input:checked + span {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .radio input:focus-visible + span {
+    box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.16);
+  }
+
+  .form-footer {
+    margin-top: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .form-footer .btn { width: 100%; }
+  .form-footer .btn:disabled { opacity: 0.6; cursor: wait; }
+  .form-msg {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+    min-height: 1.2em;
+    text-align: center;
+  }
+  .form-msg.error { color: #ef4444; }
+  .form-fine {
+    margin-top: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  body.modal-open { overflow: hidden; }
+
+  /* RESPONSIVE */
+  @media (max-width: 860px) {
+    .steps         { grid-template-columns: 1fr; }
+    .features      { grid-template-columns: 1fr 1fr; }
+    .pricing-grid  { grid-template-columns: 1fr; }
+    .hero          { padding: 72px 0 92px; }
+    section        { padding: 80px 0; }
+    .section-head  { margin-bottom: 48px; }
+  }
+  @media (max-width: 520px) {
+    .features      { grid-template-columns: 1fr; }
+    .hero-cta      { flex-direction: column; align-items: stretch; }
+    .hero-cta .btn { width: 100%; }
+    .nav-inner     { padding: 14px 20px; }
+    .container     { padding: 0 20px; }
+    footer         { flex-direction: column; text-align: center; }
+    .step          { padding: 40px 28px; min-height: auto; }
+    .price-card    { padding: 36px 28px; }
+    .modal         { padding: 20px 12px; }
+    .modal-card    { padding: 38px 24px 28px; }
+    .radio-group   { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#top" class="logo">
+        <span class="logo-mark"></span>
+        VidFactory AI
+      </a>
+      <button type="button" data-order="first" class="btn btn-primary btn-nav">Get Started — $5</button>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <div class="status-pill">
+        <span class="pulse"></span>
+        FACTORY ONLINE / NOW TAKING ORDERS
+      </div>
+      <h1>
+        Get a full-length AI YouTube video for <span class="accent">$5</span>
+      </h1>
+      <p class="hero-sub">
+        10–20 minute finance explainer videos with custom visuals, voiceover, and captions — generated end to end and delivered to your inbox.
+      </p>
+      <div class="hero-cta">
+        <button type="button" data-order="first" class="btn btn-primary btn-large btn-arrow">Order Your First Video — $5</button>
+        <a href="#sample" class="btn btn-secondary btn-large">Watch a Sample</a>
+      </div>
+      <div class="trust">// First video guaranteed — full refund if you're not satisfied</div>
+    </div>
+  </header>
+
+  <section id="sample">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">01 / Output</div>
+        <h2>See a real output</h2>
+        <p>This video was generated entirely by our pipeline — script, visuals, voiceover, and captions.</p>
+      </div>
+      <div class="video-frame">
+        <div class="video-corners"><span></span><span></span></div>
+        <div class="video-embed">
+          <video
+            src="life-transformed-after-saving-10k.mp4"
+            controls
+            playsinline
+            preload="metadata"
+          ></video>
+        </div>
+      </div>
+      <p class="video-caption">// Topics like this one, generated end to end for your channel.</p>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">02 / Process</div>
+        <h2>Three steps</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Tell us your topic</h3>
+          <p>Submit a video topic and choose your character style.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>We generate everything</h3>
+          <p>Script, visuals, voiceover, captions. All AI-generated, all in one video.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>Download and upload</h3>
+          <p>Get a 1080p MP4 ready to post to YouTube.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">03 / Specs</div>
+        <h2>What's included</h2>
+      </div>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-mark">▶</div>
+          <h3>10–20 minute finished video</h3>
+          <p>Long-form content sized for YouTube watch-time.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-mark">◉</div>
+          <h3>AI voiceover</h3>
+          <p>Consistent character voice across the entire video.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-mark">✦</div>
+          <h3>Cartoon-style visuals</h3>
+          <p>Custom scenes matched to your script, beat by beat.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-mark">≡</div>
+          <h3>Auto-generated captions</h3>
+          <p>Burned-in captions for silent autoplay viewers.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-mark">◆</div>
+          <h3>1080p MP4 export</h3>
+          <p>Ready to upload — no editing required.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-mark">✕</div>
+          <h3>No watermarks</h3>
+          <p>Yours to keep — upload to any channel you own.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">04 / Pricing</div>
+        <h2>Simple pricing</h2>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card highlight">
+          <div class="price-badge">Start here</div>
+          <div class="price-label">First Video</div>
+          <div class="price">$5</div>
+          <div class="price-unit">one-time / try it out</div>
+          <ul class="price-list">
+            <li>Full 10–20 minute video</li>
+            <li>All features included</li>
+            <li>Satisfaction guaranteed</li>
+          </ul>
+          <button type="button" data-order="first" class="btn btn-primary btn-arrow">Order for $5</button>
+        </div>
+        <div class="price-card">
+          <div class="price-label">Ongoing</div>
+          <div class="price">$15</div>
+          <div class="price-unit">per video / no subscription</div>
+          <ul class="price-list">
+            <li>Same full video</li>
+            <li>No subscription required</li>
+            <li>Order any time</li>
+          </ul>
+          <button type="button" data-order="ongoing" class="btn btn-secondary btn-arrow">Order a Video</button>
+        </div>
+      </div>
+      <p class="pricing-note">After payment you'll fill in a short form with your topic. We'll email your finished video straight to your inbox.</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">05 / FAQ</div>
+        <h2>Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span>What topics work best?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><p>Currently optimised for personal finance and money psychology. Examples: &ldquo;Why most people never build wealth&rdquo;, &ldquo;The psychology of lifestyle inflation&rdquo;, &ldquo;How to actually save your first $10k.&rdquo; The more specific your topic, the better the result.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span>What happens after I pay?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><p>You'll be redirected to a short form where you submit your topic and choose a character style. That's all we need. We'll handle the rest and email you when your video is ready.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span>Can I use this for my YouTube channel?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><p>Yes. You receive the full MP4 file and can upload it wherever you want. No watermarks, no restrictions.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span>What if I'm not happy with the result?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><p>Your first video is guaranteed. If you're not satisfied with the output, we'll refund your $5 — no questions asked. Email us at <a href="mailto:haithama125@gmail.com">haithama125@gmail.com</a>.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final">
+    <div class="cta-final-inner">
+      <div class="eyebrow" style="justify-content:center;">Last stop</div>
+      <h2>Your next video is one click away</h2>
+      <p>Try it for $5. If it's not good, we'll refund you.</p>
+      <button type="button" data-order="first" class="btn btn-primary btn-large btn-arrow">Order Your First Video — $5</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">VidFactory AI</div>
+    <div>Questions? <a href="mailto:haithama125@gmail.com">haithama125@gmail.com</a></div>
+    <div>© 2026</div>
+  </footer>
+
+  <div class="modal" id="orderModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-corners"><span></span><span></span><span></span><span></span></div>
+      <button type="button" class="modal-close" data-close aria-label="Close">×</button>
+
+      <div class="modal-head">
+        <div class="eyebrow">Order / <span id="modalTier">First video — $5</span></div>
+        <h2 id="modalTitle">Tell us about your video</h2>
+        <p class="modal-sub">Two minutes. We'll have everything we need.</p>
+      </div>
+
+      <form id="orderForm" novalidate>
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+        <input type="hidden" name="subject" value="New VidFactory order" />
+        <input type="hidden" name="from_name" value="VidFactory AI" />
+        <input type="hidden" name="tier" id="formTier" value="first" />
+        <input type="hidden" name="price" id="formPrice" value="$5" />
+
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" required autocomplete="name" />
+        </div>
+
+        <div class="field">
+          <label for="f-email">Email <span class="hint">— where we'll send your video</span></label>
+          <input id="f-email" name="email" type="email" required autocomplete="email" />
+        </div>
+
+        <div class="field">
+          <label for="f-topic">Video topic <span class="hint">— the more specific, the better</span></label>
+          <textarea id="f-topic" name="topic" rows="3" required placeholder="e.g. Why most people never build wealth — the psychology of lifestyle inflation"></textarea>
+        </div>
+
+        <div class="field">
+          <label>Character style</label>
+          <div class="radio-group">
+            <label class="radio"><input type="radio" name="character_style" value="Default narrator" checked /><span>Default narrator</span></label>
+            <label class="radio"><input type="radio" name="character_style" value="Energetic / casual" /><span>Energetic / casual</span></label>
+            <label class="radio"><input type="radio" name="character_style" value="Calm / thoughtful" /><span>Calm / thoughtful</span></label>
+            <label class="radio"><input type="radio" name="character_style" value="Surprise me" /><span>Surprise me</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-notes">Anything else? <span class="hint">— optional</span></label>
+          <textarea id="f-notes" name="notes" rows="2" placeholder="References, tone notes, things to avoid…"></textarea>
+        </div>
+
+        <div class="form-footer">
+          <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
+          <button type="submit" class="btn btn-primary btn-large btn-arrow" id="submitBtn">
+            <span class="btn-label">Continue to payment</span>
+          </button>
+        </div>
+
+        <p class="form-fine">// Next: secure Stripe checkout for <span id="formPriceDisplay">$5</span>. You won't be charged until you confirm there.</p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      /* FAQ accordion */
+      var items = document.querySelectorAll('.faq-item');
+      items.forEach(function (item) {
+        var btn = item.querySelector('.faq-q');
+        btn.addEventListener('click', function () {
+          var wasOpen = item.classList.contains('open');
+          items.forEach(function (i) {
+            i.classList.remove('open');
+            var b = i.querySelector('.faq-q');
+            if (b) b.setAttribute('aria-expanded', 'false');
+          });
+          if (!wasOpen) {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      /* Order modal + form */
+      var STRIPE_LINKS = {
+        first:   'YOUR_STRIPE_PAYMENT_LINK_5',
+        ongoing: 'YOUR_STRIPE_PAYMENT_LINK_15'
+      };
+
+      var modal            = document.getElementById('orderModal');
+      var modalTier        = document.getElementById('modalTier');
+      var formTier         = document.getElementById('formTier');
+      var formPrice        = document.getElementById('formPrice');
+      var formPriceDisplay = document.getElementById('formPriceDisplay');
+      var orderForm        = document.getElementById('orderForm');
+      var submitBtn        = document.getElementById('submitBtn');
+      var submitLabel      = submitBtn.querySelector('.btn-label');
+      var formMsg          = document.getElementById('formMsg');
+
+      function openModal(tier) {
+        tier = tier === 'ongoing' ? 'ongoing' : 'first';
+        var label = tier === 'first' ? 'First video — $5' : 'Ongoing video — $15';
+        var price = tier === 'first' ? '$5' : '$15';
+        modalTier.textContent = label;
+        formTier.value = tier;
+        formPrice.value = price;
+        formPriceDisplay.textContent = price;
+        formMsg.textContent = '';
+        formMsg.classList.remove('error');
+        submitBtn.disabled = false;
+        submitLabel.textContent = 'Continue to payment';
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        setTimeout(function () {
+          var first = document.getElementById('f-name');
+          if (first) first.focus();
+        }, 80);
+      }
+
+      function closeModal() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+      }
+
+      document.querySelectorAll('[data-order]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          openModal(el.getAttribute('data-order'));
+        });
+      });
+
+      document.querySelectorAll('[data-close]').forEach(function (el) {
+        el.addEventListener('click', closeModal);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+      });
+
+      orderForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!orderForm.checkValidity()) {
+          orderForm.reportValidity();
+          return;
+        }
+        submitBtn.disabled = true;
+        submitLabel.textContent = 'Sending…';
+        formMsg.textContent = '';
+        formMsg.classList.remove('error');
+
+        var formData = new FormData(orderForm);
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data && data.success) {
+            formMsg.textContent = '✓ Redirecting to checkout…';
+            var dest = STRIPE_LINKS[formTier.value] || STRIPE_LINKS.first;
+            window.location.href = dest;
+          } else {
+            throw new Error((data && data.message) || 'Submission failed');
+          }
+        })
+        .catch(function (err) {
+          formMsg.textContent = '✕ ' + (err.message || 'Something went wrong — email haithama125@gmail.com directly.');
+          formMsg.classList.add('error');
+          submitBtn.disabled = false;
+          submitLabel.textContent = 'Try again';
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
