@@ -1,0 +1,13 @@
+# Video assets — host on YouTube/Cloudinary/etc, don't commit
+*.mp4
+*.mov
+*.webm
+*.mkv
+
+# macOS
+.DS_Store
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
