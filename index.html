@@ -208,31 +208,6 @@
     text-align: center;
     padding: 0 28px;
   }
-  .status-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 7px 16px;
-    border: 1px solid var(--border-strong);
-    border-radius: 999px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    color: var(--text-muted);
-    margin-bottom: 36px;
-    background: rgba(255, 255, 255, 0.015);
-  }
-  .pulse {
-    width: 8px; height: 8px;
-    background: var(--good);
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(74, 222, 128, 0.6);
-    animation: pulse 2s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%      { opacity: 0.5; transform: scale(0.85); }
-  }
   .hero h1 {
     font-size: clamp(2.6rem, 6.2vw, 5.2rem);
     margin-bottom: 26px;
@@ -755,6 +730,52 @@
   }
   .field textarea { resize: vertical; min-height: 76px; font-family: 'Inter Tight', sans-serif; }
 
+  .file-input {
+    position: absolute;
+    width: 1px; height: 1px;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .file-label {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+    padding: 10px 12px;
+    border: 1px dashed var(--border-strong);
+    background: var(--bg);
+    cursor: pointer;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    font-family: 'Inter Tight', sans-serif !important;
+    font-size: 0.9rem !important;
+    color: var(--text-muted) !important;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .file-label:hover { border-color: var(--text); color: var(--text) !important; }
+  .file-cta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 6px 10px;
+    white-space: nowrap;
+  }
+  .file-name {
+    color: var(--text-dim);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .file-input:focus-visible + .file-label,
+  .file-label:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.16);
+  }
+
   .radio-group {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -854,10 +875,6 @@
 
   <header class="hero" id="top">
     <div class="hero-inner">
-      <div class="status-pill">
-        <span class="pulse"></span>
-        FACTORY ONLINE / NOW TAKING ORDERS
-      </div>
       <h1>
         Get a full-length AI YouTube video for <span class="accent">$5</span>
       </h1>
@@ -1063,7 +1080,7 @@
       </div>
 
       <form id="orderForm" novalidate>
-        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+        <input type="hidden" name="access_key" value="af496cfe-ee2d-4fbb-bf48-9126fdb853d0" />
         <input type="hidden" name="subject" value="New VidFactory order" />
         <input type="hidden" name="from_name" value="VidFactory AI" />
         <input type="hidden" name="tier" id="formTier" value="first" />
@@ -1092,6 +1109,16 @@
             <label class="radio"><input type="radio" name="character_style" value="Calm / thoughtful" /><span>Calm / thoughtful</span></label>
             <label class="radio"><input type="radio" name="character_style" value="Surprise me" /><span>Surprise me</span></label>
           </div>
+        </div>
+
+        <div class="field">
+          <label for="f-character">Main character <span class="hint">— optional</span></label>
+          <textarea id="f-character" name="main_character" rows="2" placeholder="Describe the main character — look, vibe, personality…"></textarea>
+          <input id="f-character-image" name="main_character_image" type="file" accept="image/*" class="file-input" />
+          <label for="f-character-image" class="file-label">
+            <span class="file-cta">Upload reference image</span>
+            <span class="file-name" id="characterFileName">No file chosen</span>
+          </label>
         </div>
 
         <div class="field">
@@ -1146,6 +1173,15 @@
       var submitBtn        = document.getElementById('submitBtn');
       var submitLabel      = submitBtn.querySelector('.btn-label');
       var formMsg          = document.getElementById('formMsg');
+      var characterFile    = document.getElementById('f-character-image');
+      var characterFileName = document.getElementById('characterFileName');
+      if (characterFile && characterFileName) {
+        characterFile.addEventListener('change', function () {
+          characterFileName.textContent = characterFile.files && characterFile.files[0]
+            ? characterFile.files[0].name
+            : 'No file chosen';
+        });
+      }
 
       function openModal(tier) {
         tier = tier === 'ongoing' ? 'ongoing' : 'first';
