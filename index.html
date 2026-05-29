@@ -3,95 +3,100 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>VidFactory AI — Full-length AI YouTube videos for $5</title>
+<title>Klipt — Full-length AI YouTube videos for $5</title>
 <meta name="description" content="10-20 minute finance explainer videos with custom visuals, voiceover, and captions — generated end to end." />
+<link rel="icon" type="image/x-icon" href="/kliptfavicon/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="/kliptfavicon/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/kliptfavicon/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/kliptfavicon/apple-touch-icon.png" />
+<link rel="manifest" href="/kliptfavicon/site.webmanifest" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Inter+Tight:wght@400..700&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --bg:           #0a0a0a;
-    --bg-elev:      #121212;
-    --bg-card:      #171717;
-    --border:       rgba(255, 255, 255, 0.07);
-    --border-strong:rgba(255, 255, 255, 0.14);
-    --text:         #f5f4f0;
-    --text-muted:   rgba(245, 244, 240, 0.6);
-    --text-dim:     rgba(245, 244, 240, 0.36);
-    --accent:       #f5a623;
-    --accent-hover: #ffb732;
-    --accent-soft:  rgba(245, 166, 35, 0.12);
-    --accent-glow:  rgba(245, 166, 35, 0.35);
-    --good:         #4ade80;
-    --max:          1200px;
+    --paper:        #efe8d9;
+    --paper-warm:   #f4eddd;
+    --paper-deep:   #e6dfcc;
+    --ink:          #131110;
+    --ink-soft:     #2a2520;
+    --ink-mute:     rgba(19, 17, 16, 0.62);
+    --ink-dim:      rgba(19, 17, 16, 0.40);
+    --rule:         rgba(19, 17, 16, 0.18);
+    --rule-strong:  rgba(19, 17, 16, 0.42);
+    --rust:         #c5421a;
+    --rust-deep:    #a3361a;
+    --rust-soft:    rgba(197, 66, 26, 0.10);
+    --bad:          #b91c1c;
+    --max:          1280px;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
   body {
-    background: var(--bg);
-    color: var(--text);
+    background: var(--paper);
+    color: var(--ink);
     font-family: 'Inter Tight', system-ui, sans-serif;
-    font-feature-settings: 'ss01', 'cv11';
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.55;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Subtle film grain over the whole page */
+  /* Paper grain over everything */
   body::after {
     content: '';
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: 200;
-    opacity: 0.35;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+    opacity: 0.32;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
   }
 
-  ::selection { background: var(--accent); color: #0a0a0a; }
-
+  ::selection { background: var(--ink); color: var(--paper); }
   a { color: inherit; text-decoration: none; }
 
   /* TYPOGRAPHY */
-  h1, h2, h3, .display {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    line-height: 1.04;
-    color: var(--text);
+  h1, h2, h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 0.96;
+    color: var(--ink);
+    font-variation-settings: "opsz" 144;
+  }
+  em.it, h1 em, h2 em, h3 em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--rust);
+    font-variation-settings: "opsz" 144, "SOFT" 100;
   }
 
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.16em;
+  .label {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 0.74rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 14px;
+    color: var(--ink-mute);
+    font-weight: 600;
   }
-  .eyebrow::before {
-    content: '';
-    width: 6px; height: 6px;
-    background: var(--accent);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--accent-glow);
+  .serif-it {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
   }
 
-  /* CONTAINER */
-  .container {
+  /* WRAP */
+  .wrap {
     width: 100%;
     max-width: var(--max);
     margin: 0 auto;
-    padding: 0 28px;
+    padding: 0 40px;
   }
 
   /* NAVIGATION */
@@ -99,430 +104,642 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(10, 10, 10, 0.72);
-    backdrop-filter: blur(18px) saturate(1.2);
-    -webkit-backdrop-filter: blur(18px) saturate(1.2);
-    border-bottom: 1px solid var(--border);
+    background: rgba(239, 232, 217, 0.86);
+    backdrop-filter: blur(14px) saturate(1.2);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    border-bottom: 1px solid var(--rule);
   }
   .nav-inner {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
-    padding: 16px 28px;
+    padding: 18px 40px;
     max-width: var(--max);
     margin: 0 auto;
+    gap: 24px;
   }
   .logo {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 900;
+    font-size: 1.58rem;
+    letter-spacing: -0.045em;
+    color: var(--ink);
+    font-variation-settings: "opsz" 144;
     display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 1.08rem;
-    letter-spacing: -0.02em;
-    color: var(--text);
+    align-items: baseline;
+    gap: 10px;
   }
-  .logo-mark {
-    width: 24px; height: 24px;
-    background: var(--accent);
-    display: inline-grid;
-    place-items: center;
-    box-shadow: 0 0 18px rgba(245, 166, 35, 0.35);
+  .logo sup {
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 500;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    transform: translateY(-2px);
+    display: inline-block;
   }
-  .logo-mark::after {
-    content: '';
-    width: 0; height: 0;
-    border-left: 7px solid #0a0a0a;
-    border-top: 4.5px solid transparent;
-    border-bottom: 4.5px solid transparent;
-    margin-left: 2px;
+  .nav-issue {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--ink-mute);
+    flex: 1;
+    text-align: center;
   }
+  @media (max-width: 760px) { .nav-issue { display: none; } }
 
   /* BUTTONS */
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 14px 22px;
+    gap: 12px;
+    padding: 16px 26px;
     font-family: 'Inter Tight', sans-serif;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.97rem;
     line-height: 1;
-    border: none;
+    border: 1px solid transparent;
     cursor: pointer;
-    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
     white-space: nowrap;
+    letter-spacing: -0.005em;
   }
   .btn-primary {
-    background: var(--accent);
-    color: #0a0a0a;
-    box-shadow: 0 0 0 0 var(--accent-glow);
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
   }
   .btn-primary:hover {
-    background: var(--accent-hover);
+    background: var(--rust);
+    border-color: var(--rust);
     transform: translateY(-1px);
-    box-shadow: 0 8px 24px -6px var(--accent-glow);
   }
   .btn-secondary {
     background: transparent;
-    color: var(--text);
-    border: 1px solid var(--border-strong);
+    color: var(--ink);
+    border-color: var(--rule-strong);
   }
   .btn-secondary:hover {
-    border-color: var(--text);
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
   }
-  .btn-large { padding: 18px 28px; font-size: 1rem; }
-  .btn-nav { padding: 10px 18px; font-size: 0.85rem; }
+  .btn-large { padding: 20px 32px; font-size: 1.05rem; }
+  .btn-nav   { padding: 11px 18px; font-size: 0.86rem; }
   .btn-arrow::after {
     content: '→';
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1em;
-    transition: transform 0.18s ease;
+    transition: transform 0.2s ease;
   }
-  .btn-arrow:hover::after { transform: translateX(4px); }
+  .btn-arrow:hover::after { transform: translateX(5px); }
 
   /* HERO */
   .hero {
-    padding: 110px 0 130px;
+    padding: 96px 0 130px;
     position: relative;
+    background: var(--ink);
+    color: var(--paper);
     overflow: hidden;
   }
   .hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
-    background-size: 80px 80px;
-    mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, #000 30%, transparent 75%);
-    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, #000 30%, transparent 75%);
+    background:
+      radial-gradient(ellipse 85% 65% at 92% 18%, rgba(197, 66, 26, 0.38) 0%, transparent 58%),
+      radial-gradient(ellipse 55% 50% at 10% 85%, rgba(239, 232, 217, 0.05) 0%, transparent 50%);
     pointer-events: none;
   }
-  .hero-inner {
-    position: relative;
-    max-width: 980px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 0 28px;
+  .hero .wrap { position: relative; z-index: 1; }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 80px;
+    align-items: center;
   }
+  .hero-left { max-width: 720px; }
+
   .hero h1 {
-    font-size: clamp(2.6rem, 6.2vw, 5.2rem);
-    margin-bottom: 26px;
+    font-size: clamp(2.6rem, 6vw, 5.6rem);
+    letter-spacing: -0.04em;
+    line-height: 0.96;
+    color: var(--paper);
+    margin-bottom: 36px;
   }
-  .hero h1 .accent {
-    color: var(--accent);
-    position: relative;
-    display: inline-block;
+  .hero h1 em {
+    color: var(--rust);
   }
-  .hero h1 .accent::after {
-    content: '';
-    position: absolute;
-    left: 4%; right: 4%;
-    bottom: -2px;
-    height: 3px;
-    background: var(--accent);
-    opacity: 0.35;
+  .hero h1 .price {
+    font-weight: 900;
+    font-style: normal;
+    color: var(--rust);
   }
   .hero-sub {
-    font-size: clamp(1.05rem, 1.6vw, 1.22rem);
-    color: var(--text-muted);
-    max-width: 640px;
-    margin: 0 auto 42px;
+    font-size: clamp(1.05rem, 1.4vw, 1.18rem);
     line-height: 1.55;
+    color: rgba(239, 232, 217, 0.78);
+    max-width: 540px;
+  }
+
+  /* Vertical wheel */
+  .hero-wheel {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 0;
+    margin: 0;
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(1.35rem, 2.1vw, 1.95rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+  .hero-wheel li {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    color: rgba(239, 232, 217, 0.22);
+    transition: color 0.45s ease;
+  }
+  .hero-wheel li::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 1.5px;
+    background: var(--rust);
+    flex-shrink: 0;
+    transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease;
+    opacity: 0;
+  }
+  .hero-wheel li.is-active {
+    color: var(--paper);
+  }
+  .hero-wheel li.is-active::before {
+    width: 36px;
+    opacity: 1;
   }
   .hero-cta {
     display: flex;
-    gap: 12px;
-    justify-content: center;
+    gap: 14px;
     flex-wrap: wrap;
-    margin-bottom: 28px;
+    margin-top: 38px;
   }
-  .trust {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    color: var(--text-dim);
-    letter-spacing: 0.04em;
+  .hero-trust {
+    margin-top: 20px;
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(239, 232, 217, 0.68);
+  }
+  .hero-trust b { color: var(--paper); font-style: normal; font-weight: 600; }
+
+  /* Buttons on dark hero */
+  .hero .btn-primary {
+    background: var(--paper);
+    color: var(--ink);
+    border-color: var(--paper);
+  }
+  .hero .btn-primary:hover {
+    background: var(--rust);
+    color: var(--paper);
+    border-color: var(--rust);
+  }
+  .hero .btn-secondary {
+    background: transparent;
+    color: var(--paper);
+    border-color: rgba(239, 232, 217, 0.32);
+  }
+  .hero .btn-secondary:hover {
+    background: var(--paper);
+    color: var(--ink);
+    border-color: var(--paper);
   }
 
   /* SECTIONS */
-  section {
-    padding: 110px 0;
-    position: relative;
-  }
-  .section-head {
-    text-align: center;
-    margin-bottom: 64px;
-    max-width: 640px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .section-head h2 {
-    font-size: clamp(2rem, 4vw, 3.1rem);
-    margin-bottom: 14px;
-  }
-  .section-head p {
-    color: var(--text-muted);
-    font-size: 1.05rem;
-  }
+  section { padding: 120px 0; position: relative; }
 
-  /* VIDEO */
-  .video-frame {
-    max-width: 940px;
-    margin: 0 auto;
+  /* SAMPLE */
+  .sample-head {
+    margin-bottom: 56px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--rule);
+    max-width: 880px;
+  }
+  .sample-head h2 {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    margin-bottom: 12px;
+  }
+  .sample-head p {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    max-width: 540px;
+  }
+  .video-wrap {
     position: relative;
-    border: 1px solid var(--border-strong);
-    background: var(--bg-elev);
-    padding: 14px;
-  }
-  .video-frame::before,
-  .video-frame::after,
-  .video-corners > span {
-    position: absolute;
-    width: 14px; height: 14px;
-    border: 1px solid var(--accent);
-    pointer-events: none;
-  }
-  .video-frame::before {
-    content: '';
-    top: -1px; left: -1px;
-    border-right: none; border-bottom: none;
-  }
-  .video-frame::after {
-    content: '';
-    top: -1px; right: -1px;
-    border-left: none; border-bottom: none;
-  }
-  .video-corners span:nth-child(1) {
-    bottom: -1px; left: -1px;
-    border-right: none; border-top: none;
-  }
-  .video-corners span:nth-child(2) {
-    bottom: -1px; right: -1px;
-    border-left: none; border-top: none;
+    max-width: 1080px;
+    margin: 0 auto;
   }
   .video-embed {
     position: relative;
     aspect-ratio: 16 / 9;
     width: 100%;
-    background: #000;
+    background: var(--ink);
+    border: 1px solid var(--ink);
   }
-  .video-embed iframe,
-  .video-embed video {
+  .video-embed iframe {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     border: 0;
     display: block;
-    background: #000;
   }
   .video-caption {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    gap: 24px;
+    align-items: baseline;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule);
+  }
+  .video-caption .a {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--ink-soft);
+  }
+  .video-caption .b {
     text-align: center;
-    margin-top: 28px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    letter-spacing: 0.04em;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 0.74rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .video-caption .c {
+    text-align: right;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 0.85rem;
+    color: var(--ink-mute);
+    letter-spacing: 0.02em;
+    font-weight: 600;
   }
 
-  /* STEPS */
-  .steps {
+  /* WHY — manifesto */
+  #why {
+    background: var(--paper-deep);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 80px;
+    align-items: start;
+  }
+  .why-head h2 {
+    font-size: clamp(2.4rem, 5.6vw, 4.6rem);
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+  }
+  .why-body {
+    font-size: 1.08rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+  }
+  .why-body p { margin-bottom: 1.3em; }
+  .why-body p:last-of-type { margin-bottom: 0; }
+  .why-body em {
+    font-style: italic;
+    color: var(--rust);
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+  .why-lead {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.35rem, 2vw, 1.65rem);
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.4;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+    border-left: 2px solid var(--rust);
+    padding-left: 24px;
+    margin-left: -2px;
+  }
+  .why-stats {
+    margin-top: 56px;
+    padding-top: 36px;
+    border-top: 1px solid var(--rule);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
+    gap: 32px;
   }
-  .step {
-    background: var(--bg);
-    padding: 48px 36px;
-    min-height: 260px;
+  .why-stat {
     display: flex;
     flex-direction: column;
-    transition: background 0.2s ease;
-    position: relative;
+    gap: 12px;
   }
-  .step:hover { background: var(--bg-elev); }
-  .step-num {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: clamp(3.5rem, 6vw, 5rem);
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 28px;
-    letter-spacing: -0.05em;
+  .why-stat-n {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 800;
+    font-size: clamp(1.2rem, 1.7vw, 1.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    font-variation-settings: "opsz" 144;
   }
-  .step h3 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
+  .why-stat-n em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--rust);
+    font-variation-settings: "opsz" 144, "SOFT" 100;
   }
-  .step p {
-    color: var(--text-muted);
-    font-size: 0.98rem;
+  .why-stat-l {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 0.84rem;
+    color: var(--ink-mute);
+    line-height: 1.45;
   }
 
-  /* FEATURES */
-  .features {
+  /* PROCESS */
+  .process-head {
+    margin-bottom: 72px;
+    max-width: 880px;
+  }
+  .process-head .kicker {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+  .process-head h2 {
+    font-size: clamp(2.8rem, 6.4vw, 5.6rem);
+  }
+  .process-steps {
+    border-top: 2px solid var(--ink);
+  }
+  .process-step {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: 130px 1fr 1.4fr;
+    gap: 56px;
+    padding: 52px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
   }
-  .feature {
-    padding: 32px 28px;
-    border: 1px solid var(--border);
-    background: var(--bg-elev);
-    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-    position: relative;
+  .process-step:hover .num em { color: var(--rust); }
+  .process-step .num {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 800;
+    font-size: clamp(3.2rem, 5vw, 4.6rem);
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    color: var(--ink);
+    font-variation-settings: "opsz" 144;
   }
-  .feature:hover {
-    border-color: var(--border-strong);
-    background: var(--bg-card);
-    transform: translateY(-2px);
+  .process-step .num em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--ink-mute);
+    margin-left: 4px;
+    transition: color 0.2s ease;
   }
-  .feature-mark {
-    display: inline-grid;
-    place-items: center;
-    width: 36px; height: 36px;
-    color: var(--accent);
-    font-size: 1.25rem;
-    margin-bottom: 22px;
-    background: var(--accent-soft);
-    border: 1px solid rgba(245, 166, 35, 0.25);
+  .process-step h3 {
+    font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+    letter-spacing: -0.03em;
   }
-  .feature h3 {
+  .process-step p {
+    font-size: 1.12rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 460px;
+  }
+
+  /* SPEC LIST */
+  .spec-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 40px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .spec-head h2 { font-size: clamp(2.8rem, 6.4vw, 5.6rem); }
+  .spec-head .meta {
+    text-align: right;
     font-family: 'Inter Tight', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    margin-bottom: 6px;
+    font-size: 0.84rem;
+    color: var(--ink-mute);
+    letter-spacing: 0.02em;
+    font-weight: 500;
   }
-  .feature p {
-    color: var(--text-muted);
-    font-size: 0.93rem;
+  .spec-head .meta strong {
+    display: block;
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--ink);
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+  .spec-list { list-style: none; }
+  .spec-list li {
+    display: grid;
+    grid-template-columns: 92px 1fr 2fr;
+    gap: 40px;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+    transition: background 0.18s ease;
+  }
+  .spec-list li:hover { background: var(--rust-soft); }
+  .spec-list .idx {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.35rem;
+    color: var(--rust);
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+  .spec-list .name {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+    letter-spacing: -0.025em;
+    line-height: 1.08;
+    font-variation-settings: "opsz" 144;
+  }
+  .spec-list .desc {
+    font-size: 1.06rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
   }
 
   /* PRICING */
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 22px;
+  .pricing-head {
     max-width: 880px;
-    margin: 0 auto;
+    margin-bottom: 28px;
   }
-  .price-card {
-    background: var(--bg-elev);
-    border: 1px solid var(--border);
-    padding: 42px 36px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-  .price-card.highlight {
-    border-color: var(--accent);
-    background:
-      linear-gradient(180deg, rgba(245, 166, 35, 0.05) 0%, var(--bg-elev) 70%);
-  }
-  .price-badge {
-    position: absolute;
-    top: -1px; right: 24px;
-    background: var(--accent);
-    color: #0a0a0a;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 6px 12px;
-    font-weight: 500;
-  }
-  .price-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--text-dim);
+  .pricing-head .kicker {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 1.1rem;
     margin-bottom: 18px;
   }
-  .price {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: clamp(3.2rem, 5vw, 4.2rem);
-    line-height: 1;
-    letter-spacing: -0.035em;
-    margin-bottom: 6px;
+  .pricing-head h2 { font-size: clamp(2.8rem, 6.4vw, 5.6rem); }
+
+  .pricing-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
   }
-  .price-unit {
-    font-family: 'JetBrains Mono', monospace;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    margin-bottom: 28px;
-    letter-spacing: 0.04em;
-  }
-  .price-list {
-    list-style: none;
-    margin-bottom: 28px;
-    flex-grow: 1;
-  }
-  .price-list li {
+  .price-col {
+    padding: 52px 44px 44px;
+    position: relative;
     display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.95rem;
+    flex-direction: column;
   }
-  .price-list li:last-child { border-bottom: none; }
-  .price-list li::before {
-    content: '→';
-    font-family: 'JetBrains Mono', monospace;
-    color: var(--accent);
-    flex-shrink: 0;
-    margin-top: 1px;
+  .price-col + .price-col { border-left: 1px solid var(--rule); }
+  .price-col .tag {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 0.74rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    font-weight: 600;
+    margin-bottom: 26px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
-  .pricing-note {
-    text-align: center;
-    margin-top: 36px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.82rem;
-    color: var(--text-dim);
-    max-width: 580px;
-    margin-left: auto;
-    margin-right: auto;
+  .price-col .tag.featured { color: var(--rust); }
+  .price-col .tag .tag-rule {
+    flex: 1;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.4;
+  }
+  .price-col .amount {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(5.5rem, 12vw, 10rem);
+    line-height: 0.85;
+    letter-spacing: -0.055em;
+    margin-bottom: 16px;
+    font-variation-settings: "opsz" 144;
+  }
+  .price-col .amount em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--rust);
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+  .price-col .amount .dollar {
+    font-size: 0.5em;
+    vertical-align: top;
+    margin-right: 4px;
+    color: var(--ink-mute);
+    font-weight: 700;
+    font-style: normal;
+  }
+  .price-col .unit {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    margin-bottom: 36px;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+  .price-col .what {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: 36px;
+    max-width: 380px;
+  }
+  .price-col .what strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .price-col .btn { align-self: flex-start; }
+
+  .pricing-foot {
+    margin-top: 32px;
+    max-width: 720px;
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
     line-height: 1.6;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
   }
 
   /* FAQ */
-  .faq-list {
-    max-width: 760px;
-    margin: 0 auto;
+  .faq-head { max-width: 880px; margin-bottom: 24px; }
+  .faq-head .kicker {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+    margin-bottom: 18px;
   }
-  .faq-item { border-top: 1px solid var(--border); }
-  .faq-item:last-child { border-bottom: 1px solid var(--border); }
+  .faq-head h2 { font-size: clamp(2.8rem, 6.4vw, 5.6rem); }
+
+  .faq-list { border-top: 2px solid var(--ink); }
+  .faq-item { border-bottom: 1px solid var(--rule); }
   .faq-q {
-    padding: 26px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
     width: 100%;
+    padding: 34px 0;
     background: none;
     border: none;
-    color: var(--text);
-    font-family: 'Syne', sans-serif;
-    font-weight: 600;
-    font-size: 1.15rem;
-    letter-spacing: -0.01em;
+    color: var(--ink);
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+    letter-spacing: -0.025em;
+    line-height: 1.15;
     text-align: left;
     cursor: pointer;
+    display: grid;
+    grid-template-columns: 110px 1fr auto;
+    gap: 32px;
+    align-items: center;
     transition: color 0.15s ease;
+    font-variation-settings: "opsz" 144;
   }
-  .faq-q:hover { color: var(--accent); }
+  .faq-q:hover { color: var(--rust); }
+  .faq-q .qn {
+    font-weight: 500;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--ink-mute);
+    letter-spacing: -0.01em;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
   .faq-toggle {
+    width: 36px; height: 36px;
+    border: 1px solid var(--ink);
     position: relative;
-    width: 22px; height: 22px;
     flex-shrink: 0;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .faq-q:hover .faq-toggle {
+    background: var(--ink);
+    color: var(--paper);
   }
   .faq-toggle::before,
   .faq-toggle::after {
@@ -530,41 +747,36 @@
     position: absolute;
     background: currentColor;
     top: 50%; left: 50%;
-    transition: transform 0.3s ease;
   }
   .faq-toggle::before {
-    width: 12px; height: 1.5px;
+    width: 14px; height: 1.5px;
     transform: translate(-50%, -50%);
   }
   .faq-toggle::after {
-    width: 1.5px; height: 12px;
+    width: 1.5px; height: 14px;
     transform: translate(-50%, -50%);
+    transition: transform 0.3s ease;
   }
-  .faq-item.open .faq-toggle::after {
-    transform: translate(-50%, -50%) scaleY(0);
-  }
+  .faq-item.open .faq-toggle::after { transform: translate(-50%, -50%) scaleY(0); }
+  .faq-item.open .faq-toggle { background: var(--rust); color: var(--paper); border-color: var(--rust); }
+
   .faq-a {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.35s ease, padding 0.35s ease;
-    color: var(--text-muted);
-    font-size: 1rem;
-    line-height: 1.7;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+    line-height: 1.65;
   }
-  .faq-a p { padding-right: 36px; }
-  .faq-item.open .faq-a {
-    max-height: 360px;
-    padding: 0 0 28px 0;
-  }
-  .faq-a a { color: var(--accent); border-bottom: 1px solid rgba(245, 166, 35, 0.3); }
+  .faq-a-inner { max-width: 720px; margin-left: 142px; padding-right: 60px; }
+  .faq-item.open .faq-a { max-height: 480px; padding: 0 0 36px 0; }
+  .faq-a a { color: var(--rust); border-bottom: 1px solid var(--rust); }
 
   /* FINAL CTA */
   .cta-final {
-    padding: 120px 28px;
-    text-align: center;
-    background: var(--bg-elev);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    background: var(--ink);
+    color: var(--paper);
+    padding: 140px 0 160px;
     position: relative;
     overflow: hidden;
   }
@@ -572,49 +784,95 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 50% 50%, rgba(245, 166, 35, 0.10) 0%, transparent 60%);
+    background:
+      radial-gradient(circle at 80% 30%, rgba(197, 66, 26, 0.32) 0%, transparent 55%),
+      radial-gradient(circle at 15% 70%, rgba(239, 232, 217, 0.06) 0%, transparent 50%);
     pointer-events: none;
   }
   .cta-final-inner {
     position: relative;
-    max-width: 720px;
+    max-width: var(--max);
     margin: 0 auto;
+    padding: 0 40px;
+  }
+  .cta-final .kicker {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    color: var(--rust);
+    font-size: 1.15rem;
+    margin-bottom: 28px;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
   }
   .cta-final h2 {
-    font-size: clamp(2.2rem, 5vw, 3.6rem);
-    margin-bottom: 18px;
+    font-size: clamp(3rem, 10vw, 8.4rem);
+    color: var(--paper);
+    letter-spacing: -0.045em;
+    margin-bottom: 38px;
+  }
+  .cta-final h2 em {
+    color: var(--rust);
+    font-style: italic;
+    font-weight: 500;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
   }
   .cta-final p {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    margin-bottom: 36px;
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: rgba(239, 232, 217, 0.75);
+    max-width: 560px;
+    margin-bottom: 44px;
+    line-height: 1.5;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+  .cta-final .btn-primary {
+    background: var(--paper);
+    color: var(--ink);
+    border-color: var(--paper);
+  }
+  .cta-final .btn-primary:hover {
+    background: var(--rust);
+    color: var(--paper);
+    border-color: var(--rust);
   }
 
   /* FOOTER */
   footer {
-    padding: 32px 28px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
+    padding: 56px 40px 60px;
     max-width: var(--max);
     margin: 0 auto;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
-    color: var(--text-dim);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    align-items: end;
+    border-top: 1px solid var(--rule);
   }
-  footer .footer-logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
+  .footer-logo {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 900;
+    font-size: 1.9rem;
+    letter-spacing: -0.045em;
+    color: var(--ink);
+    font-variation-settings: "opsz" 144;
+  }
+  .footer-mid {
+    text-align: center;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 0.94rem;
+    color: var(--ink-soft);
+  }
+  .footer-mid a {
+    color: var(--rust);
+    border-bottom: 1px solid var(--rust);
+  }
+  .footer-right {
+    text-align: right;
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
     font-size: 0.95rem;
-    color: var(--text);
-    letter-spacing: -0.01em;
+    color: var(--ink-mute);
+    font-variation-settings: "opsz" 144, "SOFT" 100;
   }
-  footer a {
-    color: var(--text-muted);
-    transition: color 0.15s ease;
-  }
-  footer a:hover { color: var(--accent); }
 
   /* MODAL */
   .modal {
@@ -632,89 +890,106 @@
   .modal-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.78);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(19, 17, 16, 0.74);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
   .modal-card {
     position: relative;
     width: 100%;
-    max-width: 560px;
-    background: var(--bg-elev);
-    border: 1px solid var(--border-strong);
-    padding: 44px 44px 36px;
+    max-width: 620px;
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    padding: 56px 48px 42px;
     margin: auto 0;
-    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
   @keyframes slideUp {
     from { transform: translateY(14px); opacity: 0; }
     to   { transform: translateY(0);    opacity: 1; }
   }
-  .modal-corners > span {
-    position: absolute;
-    width: 14px; height: 14px;
-    border: 1px solid var(--accent);
-    pointer-events: none;
-  }
-  .modal-corners > span:nth-child(1) { top: -1px; left: -1px;     border-right: none; border-bottom: none; }
-  .modal-corners > span:nth-child(2) { top: -1px; right: -1px;    border-left: none;  border-bottom: none; }
-  .modal-corners > span:nth-child(3) { bottom: -1px; left: -1px;  border-right: none; border-top: none; }
-  .modal-corners > span:nth-child(4) { bottom: -1px; right: -1px; border-left: none;  border-top: none; }
   .modal-close {
     position: absolute;
-    top: 10px; right: 10px;
-    width: 36px; height: 36px;
+    top: 14px; right: 14px;
+    width: 38px; height: 38px;
     background: transparent;
-    border: none;
-    color: var(--text-muted);
-    font-size: 1.5rem;
+    border: 1px solid var(--rule-strong);
+    color: var(--ink);
+    font-size: 1.45rem;
     line-height: 1;
     cursor: pointer;
     display: grid;
     place-items: center;
-    transition: color 0.15s;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
   }
-  .modal-close:hover { color: var(--accent); }
-  .modal-head { margin-bottom: 26px; }
+  .modal-close:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .modal-head {
+    margin-bottom: 32px;
+    padding-bottom: 26px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .modal-head .order-tag {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .modal-head .order-tag span { color: var(--rust); }
   .modal-head h2 {
-    font-size: 1.7rem;
-    margin: 10px 0 6px;
+    font-size: 2.1rem;
+    margin: 0 0 6px;
+    letter-spacing: -0.03em;
   }
   .modal-sub {
-    color: var(--text-muted);
-    font-size: 0.94rem;
+    color: var(--ink-soft);
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
   }
 
   /* FORM */
-  .field { margin-bottom: 18px; }
+  .field { margin-bottom: 22px; }
   .field label {
     display: block;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    font-weight: 600;
+    margin-bottom: 9px;
     text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 8px;
   }
   .field label .hint {
-    color: var(--text-dim);
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    color: var(--ink-mute);
     text-transform: none;
     letter-spacing: 0;
-    font-size: 0.85em;
-    margin-left: 4px;
+    font-size: 0.98rem;
+    font-weight: 500;
+    margin-left: 6px;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
   }
   .field input[type="text"],
   .field input[type="email"],
   .field textarea {
     width: 100%;
-    background: var(--bg);
-    border: 1px solid var(--border-strong);
-    color: var(--text);
-    padding: 12px 14px;
+    background: var(--paper-warm);
+    border: 1px solid var(--rule-strong);
+    color: var(--ink);
+    padding: 13px 16px;
     font-family: 'Inter Tight', sans-serif;
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.4;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
     outline: none;
     border-radius: 0;
     -webkit-appearance: none;
@@ -722,13 +997,19 @@
             appearance: none;
   }
   .field input::placeholder,
-  .field textarea::placeholder { color: var(--text-dim); }
+  .field textarea::placeholder {
+    color: var(--ink-dim);
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-variation-settings: "opsz" 144;
+  }
   .field input:focus,
   .field textarea:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.16);
+    border-color: var(--ink);
+    background: var(--paper);
+    box-shadow: 0 0 0 3px var(--rust-soft);
   }
-  .field textarea { resize: vertical; min-height: 76px; font-family: 'Inter Tight', sans-serif; }
+  .field textarea { resize: vertical; min-height: 84px; }
 
   .file-input {
     position: absolute;
@@ -740,46 +1021,51 @@
   .file-label {
     display: flex !important;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     margin-top: 10px;
-    padding: 10px 12px;
-    border: 1px dashed var(--border-strong);
-    background: var(--bg);
+    padding: 12px 14px;
+    border: 1px dashed var(--rule-strong);
+    background: var(--paper-warm);
     cursor: pointer;
-    text-transform: none !important;
     letter-spacing: 0 !important;
     font-family: 'Inter Tight', sans-serif !important;
-    font-size: 0.9rem !important;
-    color: var(--text-muted) !important;
+    font-size: 0.94rem !important;
+    color: var(--ink-soft) !important;
+    font-weight: 400 !important;
+    text-transform: none !important;
     transition: border-color 0.15s ease, color 0.15s ease;
   }
-  .file-label:hover { border-color: var(--text); color: var(--text) !important; }
+  .file-label:hover { border-color: var(--ink); color: var(--ink) !important; }
   .file-cta {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 0.74rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    padding: 6px 10px;
+    color: var(--paper);
+    background: var(--ink);
+    padding: 8px 12px;
     white-space: nowrap;
+    font-weight: 600;
   }
   .file-name {
-    color: var(--text-dim);
+    color: var(--ink-mute);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
   }
   .file-input:focus-visible + .file-label,
   .file-label:focus-within {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.16);
+    border-color: var(--ink);
+    box-shadow: 0 0 0 3px var(--rust-soft);
   }
 
   .radio-group {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    gap: 10px;
   }
   .radio { position: relative; cursor: pointer; }
   .radio input[type="radio"] {
@@ -790,74 +1076,106 @@
   .radio span {
     display: block;
     text-align: center;
-    padding: 11px 12px;
-    border: 1px solid var(--border-strong);
-    font-size: 0.88rem;
-    color: var(--text-muted);
+    padding: 13px 12px;
+    border: 1px solid var(--rule-strong);
+    background: var(--paper-warm);
+    font-size: 0.92rem;
+    color: var(--ink-soft);
     transition: all 0.15s ease;
     font-family: 'Inter Tight', sans-serif;
+    font-weight: 500;
   }
   .radio:hover span {
-    color: var(--text);
-    border-color: var(--text);
+    color: var(--ink);
+    border-color: var(--ink);
   }
   .radio input:checked + span {
-    background: var(--accent-soft);
-    border-color: var(--accent);
-    color: var(--accent);
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
   }
-  .radio input:focus-visible + span {
-    box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.16);
-  }
+  .radio input:focus-visible + span { box-shadow: 0 0 0 3px var(--rust-soft); }
 
   .form-footer {
-    margin-top: 26px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
   }
   .form-footer .btn { width: 100%; }
-  .form-footer .btn:disabled { opacity: 0.6; cursor: wait; }
+  .form-footer .btn:disabled { opacity: 0.55; cursor: wait; }
   .form-msg {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
-    color: var(--accent);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 0.92rem;
+    color: var(--rust);
     min-height: 1.2em;
     text-align: center;
+    font-weight: 500;
   }
-  .form-msg.error { color: #ef4444; }
+  .form-msg.error { color: var(--bad); }
   .form-fine {
-    margin-top: 14px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--text-dim);
+    margin-top: 18px;
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--ink-mute);
     text-align: center;
-    line-height: 1.5;
+    line-height: 1.55;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
   }
 
   body.modal-open { overflow: hidden; }
 
   /* RESPONSIVE */
-  @media (max-width: 860px) {
-    .steps         { grid-template-columns: 1fr; }
-    .features      { grid-template-columns: 1fr 1fr; }
-    .pricing-grid  { grid-template-columns: 1fr; }
-    .hero          { padding: 72px 0 92px; }
-    section        { padding: 80px 0; }
-    .section-head  { margin-bottom: 48px; }
+  @media (max-width: 940px) {
+    .wrap { padding: 0 28px; }
+    .nav-inner { padding: 16px 28px; }
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .why-grid { grid-template-columns: 1fr; gap: 40px; }
+    .why-stats { grid-template-columns: 1fr; gap: 24px; }
+    .process-step { grid-template-columns: 90px 1fr; gap: 28px; }
+    .process-step h3 { grid-column: 2; }
+    .process-step p { grid-column: 2; }
+    .spec-head { grid-template-columns: 1fr; gap: 20px; align-items: start; }
+    .spec-head .meta { text-align: left; }
+    .spec-list li { grid-template-columns: 56px 1fr; gap: 20px; padding: 26px 0; }
+    .spec-list .desc { grid-column: 2; padding-top: 4px; }
+    .pricing-table { grid-template-columns: 1fr; }
+    .price-col + .price-col { border-left: none; border-top: 1px solid var(--rule); }
+    .price-col { padding: 44px 32px 36px; }
+    .faq-q { grid-template-columns: 70px 1fr auto; gap: 18px; }
+    .faq-a-inner { margin-left: 88px; padding-right: 0; }
+    .cta-final-inner { padding: 0 28px; }
+    footer { grid-template-columns: 1fr; gap: 16px; text-align: left; padding: 48px 28px 56px; }
+    .footer-mid, .footer-right { text-align: left; }
   }
-  @media (max-width: 520px) {
-    .features      { grid-template-columns: 1fr; }
-    .hero-cta      { flex-direction: column; align-items: stretch; }
+
+  @media (max-width: 600px) {
+    .wrap { padding: 0 22px; }
+    .nav-inner { padding: 14px 22px; }
+    .hero { padding: 48px 0 80px; }
+    section { padding: 80px 0; }
+    .hero-grid { gap: 36px; }
+    .hero-cta { flex-direction: column; align-items: stretch; }
     .hero-cta .btn { width: 100%; }
-    .nav-inner     { padding: 14px 20px; }
-    .container     { padding: 0 20px; }
-    footer         { flex-direction: column; text-align: center; }
-    .step          { padding: 40px 28px; min-height: auto; }
-    .price-card    { padding: 36px 28px; }
-    .modal         { padding: 20px 12px; }
-    .modal-card    { padding: 38px 24px 28px; }
-    .radio-group   { grid-template-columns: 1fr; }
+    .hero-wheel { gap: 12px; }
+    .video-caption { grid-template-columns: 1fr; gap: 6px; }
+    .video-caption .b, .video-caption .c { text-align: left; }
+    .process-step { grid-template-columns: 60px 1fr; gap: 18px; padding: 38px 0; }
+    .spec-list li { padding: 22px 0; }
+    .price-col { padding: 38px 22px 28px; }
+    .cta-final { padding: 100px 0 110px; }
+    .cta-final-inner { padding: 0 22px; }
+    .modal { padding: 20px 12px; }
+    .modal-card { padding: 44px 28px 32px; }
+    .radio-group { grid-template-columns: 1fr; }
+    .faq-q { font-size: 1.2rem; padding: 26px 0; grid-template-columns: 1fr auto; gap: 16px; }
+    .faq-q .qn { display: none; }
+    .faq-a-inner { margin-left: 0; }
+    footer { padding: 40px 22px 48px; }
   }
 </style>
 </head>
@@ -865,189 +1183,240 @@
 
   <nav>
     <div class="nav-inner">
-      <a href="#top" class="logo">
-        <span class="logo-mark"></span>
-        VidFactory AI
-      </a>
-      <button type="button" data-order="first" class="btn btn-primary btn-nav">Get Started — $5</button>
+      <a href="#top" class="logo">Klipt</a>
+      <button type="button" data-order="first" class="btn btn-primary btn-nav btn-arrow">Order — $5</button>
     </div>
   </nav>
 
   <header class="hero" id="top">
-    <div class="hero-inner">
-      <h1>
-        Get a full-length AI YouTube video for <span class="accent">$5</span>
-      </h1>
-      <p class="hero-sub">
-        10–20 minute finance explainer videos with custom visuals, voiceover, and captions — generated end to end and delivered to your inbox.
-      </p>
-      <div class="hero-cta">
-        <button type="button" data-order="first" class="btn btn-primary btn-large btn-arrow">Order Your First Video — $5</button>
-        <a href="#sample" class="btn btn-secondary btn-large">Watch a Sample</a>
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <h1>
+            Full-length<br/>
+            AI YouTube videos<br/>
+            for <em>just</em> <span class="price">$5</span>.
+          </h1>
+          <p class="hero-sub">
+            YouTube automation still works — when the videos are done right. We deliver 10–20 minute finance explainers with custom visuals, voiceover, and captions, built to monetize while everyone else is getting demonetized.
+          </p>
+          <div class="hero-cta">
+            <button type="button" data-order="first" class="btn btn-primary btn-large btn-arrow">Order your first video</button>
+            <a href="#sample" class="btn btn-secondary btn-large">Watch the sample</a>
+          </div>
+          <p class="hero-trust">First video <b>guaranteed</b>. Full refund if it isn't good.</p>
+        </div>
+        <ul class="hero-wheel" id="heroWheel" aria-hidden="true">
+          <li>AI-generated</li>
+          <li>Built to monetize</li>
+          <li>10–20 minutes</li>
+          <li>Thousands of views</li>
+          <li>Five dollars</li>
+          <li>Custom visuals</li>
+          <li>Voiceover</li>
+          <li>Money-back guarantee</li>
+        </ul>
       </div>
-      <div class="trust">// First video guaranteed — full refund if you're not satisfied</div>
     </div>
   </header>
 
   <section id="sample">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow">01 / Output</div>
-        <h2>See a real output</h2>
-        <p>This video was generated entirely by our pipeline — script, visuals, voiceover, and captions.</p>
+    <div class="wrap">
+      <div class="sample-head">
+        <h2>A <em>real</em> output.</h2>
+        <p>This video was generated entirely by our pipeline — script, visuals, voiceover, captions. Nothing was touched by hand.</p>
       </div>
-      <div class="video-frame">
-        <div class="video-corners"><span></span><span></span></div>
+      <div class="video-wrap">
         <div class="video-embed">
           <iframe
             src="https://www.youtube-nocookie.com/embed/f4J7vSst8Ls?rel=0"
-            title="VidFactory AI sample output"
+            title="Klipt sample output"
             loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
           ></iframe>
         </div>
+        <div class="video-caption">
+          <div class="a">Sample № 01</div>
+          <div class="b">Topic — Saving your first $10,000</div>
+          <div class="c">Long-form / Finance</div>
+        </div>
       </div>
-      <p class="video-caption">// Topics like this one, generated end to end for your channel.</p>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap">
+      <div class="why-grid">
+        <div class="why-head">
+          <h2>Automation isn't <em>dead</em>.<br/>Bad automation is.</h2>
+        </div>
+        <div class="why-body">
+          <p class="why-lead">YouTube has been cleaning house. The demonetization waves wiped out channels running on lifeless AI slop — generic scripts, robotic voiceovers, stock B-roll on loop.</p>
+          <p>What's still standing? Channels whose videos look <em>made</em>, not assembled. That's the gap Klipt is built for. Custom scripts, consistent character voices, scenes matched beat by beat — production that still gets monetized fast and pulls thousands of views.</p>
+          <p>Most operators are quitting YouTube automation. The smart ones are doubling down with better tools. Klipt is the better tool — at the price of a coffee.</p>
+          <div class="why-stats">
+            <div class="why-stat">
+              <span class="why-stat-n">Monetized<br/><em>fast.</em></span>
+              <span class="why-stat-l">Built for the algorithm, not against it</span>
+            </div>
+            <div class="why-stat">
+              <span class="why-stat-n">Thousands<br/><em>of views.</em></span>
+              <span class="why-stat-l">Production quality the audience actually watches</span>
+            </div>
+            <div class="why-stat">
+              <span class="why-stat-n">Edge that<br/><em>compounds.</em></span>
+              <span class="why-stat-l">Quiet competitive advantage while others quit</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="how">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow">02 / Process</div>
-        <h2>Three steps</h2>
+    <div class="wrap">
+      <div class="process-head">
+        <h2>Tell us. We <em>make it.</em> You upload.</h2>
       </div>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">01</div>
-          <h3>Tell us your topic</h3>
-          <p>Submit a video topic and choose your character style.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <h3>We generate everything</h3>
-          <p>Script, visuals, voiceover, captions. All AI-generated, all in one video.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <h3>Download and upload</h3>
-          <p>Get a 1080p MP4 ready to post to YouTube.</p>
-        </div>
+      <div class="process-steps">
+        <article class="process-step">
+          <div class="num">01<em>.</em></div>
+          <h3>Send the topic</h3>
+          <p>Drop your topic and pick a character style in a short form. Two minutes, no creative brief required.</p>
+        </article>
+        <article class="process-step">
+          <div class="num">02<em>.</em></div>
+          <h3>We make the video</h3>
+          <p>Script, voiceover, visuals, captions — generated end to end with our pipeline. No assembling parts yourself.</p>
+        </article>
+        <article class="process-step">
+          <div class="num">03<em>.</em></div>
+          <h3>Download &amp; publish</h3>
+          <p>A finished 1080p MP4 lands in your inbox, no watermarks. Upload it to whichever channel you own.</p>
+        </article>
       </div>
     </div>
   </section>
 
   <section id="features">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow">03 / Specs</div>
-        <h2>What's included</h2>
-      </div>
-      <div class="features">
-        <div class="feature">
-          <div class="feature-mark">▶</div>
-          <h3>10–20 minute finished video</h3>
-          <p>Long-form content sized for YouTube watch-time.</p>
-        </div>
-        <div class="feature">
-          <div class="feature-mark">◉</div>
-          <h3>AI voiceover</h3>
-          <p>Consistent character voice across the entire video.</p>
-        </div>
-        <div class="feature">
-          <div class="feature-mark">✦</div>
-          <h3>Cartoon-style visuals</h3>
-          <p>Custom scenes matched to your script, beat by beat.</p>
-        </div>
-        <div class="feature">
-          <div class="feature-mark">≡</div>
-          <h3>Auto-generated captions</h3>
-          <p>Burned-in captions for silent autoplay viewers.</p>
-        </div>
-        <div class="feature">
-          <div class="feature-mark">◆</div>
-          <h3>1080p MP4 export</h3>
-          <p>Ready to upload — no editing required.</p>
-        </div>
-        <div class="feature">
-          <div class="feature-mark">✕</div>
-          <h3>No watermarks</h3>
-          <p>Yours to keep — upload to any channel you own.</p>
+    <div class="wrap">
+      <div class="spec-head">
+        <h2>What you <em>get</em>.</h2>
+        <div class="meta">
+          <strong>Spec sheet</strong>
+          Every order, every time
         </div>
       </div>
+      <ul class="spec-list">
+        <li>
+          <span class="idx">i.</span>
+          <span class="name">10–20 minute video</span>
+          <span class="desc">Long-form length sized for YouTube watch-time and the algorithm.</span>
+        </li>
+        <li>
+          <span class="idx">ii.</span>
+          <span class="name">AI voiceover</span>
+          <span class="desc">A consistent character voice held across the entire runtime.</span>
+        </li>
+        <li>
+          <span class="idx">iii.</span>
+          <span class="name">Cartoon-style visuals</span>
+          <span class="desc">Custom scenes matched to your script, beat by beat.</span>
+        </li>
+        <li>
+          <span class="idx">iv.</span>
+          <span class="name">Money-back guarantee</span>
+          <span class="desc">For the muted-autoplay crowd. Automatically synced and styled.</span>
+        </li>
+        <li>
+          <span class="idx">v.</span>
+          <span class="name">1080p MP4 export</span>
+          <span class="desc">Ready to upload — no editing software, no rendering wait, no fuss.</span>
+        </li>
+        <li>
+          <span class="idx">vi.</span>
+          <span class="name">No watermarks, ever</span>
+          <span class="desc">The file is yours to keep. Post it anywhere you own the channel.</span>
+        </li>
+      </ul>
     </div>
   </section>
 
   <section id="pricing">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow">04 / Pricing</div>
-        <h2>Simple pricing</h2>
+    <div class="wrap">
+      <div class="pricing-head">
+        <h2>Pricing.</h2>
       </div>
-      <div class="pricing-grid">
-        <div class="price-card highlight">
-          <div class="price-badge">Start here</div>
-          <div class="price-label">First Video</div>
-          <div class="price">$5</div>
-          <div class="price-unit">one-time / try it out</div>
-          <ul class="price-list">
-            <li>Full 10–20 minute video</li>
-            <li>All features included</li>
-            <li>Satisfaction guaranteed</li>
-          </ul>
-          <button type="button" data-order="first" class="btn btn-primary btn-arrow">Order for $5</button>
+      <div class="pricing-table">
+        <div class="price-col">
+          <div class="tag featured">First Video <span class="tag-rule"></span> Start here</div>
+          <div class="amount"><span class="dollar">$</span>5</div>
+          <div class="unit">one-time / try it out</div>
+          <div class="what">
+            <strong>The full 10–20 minute video.</strong> Every feature included. Money back if you don't love it.
+          </div>
+          <button type="button" data-order="first" class="btn btn-primary btn-large btn-arrow">Order for $5</button>
         </div>
-        <div class="price-card">
-          <div class="price-label">Ongoing</div>
-          <div class="price">$15</div>
-          <div class="price-unit">per video / no subscription</div>
-          <ul class="price-list">
-            <li>Same full video</li>
-            <li>No subscription required</li>
-            <li>Order any time</li>
-          </ul>
-          <button type="button" data-order="ongoing" class="btn btn-secondary btn-arrow">Order a Video</button>
+        <div class="price-col">
+          <div class="tag">Ongoing <span class="tag-rule"></span> Returning</div>
+          <div class="amount"><span class="dollar">$</span>15</div>
+          <div class="unit">per video / no subscription</div>
+          <div class="what">
+            <strong>Same full video, every time.</strong> Pay only when you order. No monthly bill, no minimums.
+          </div>
+          <button type="button" data-order="ongoing" class="btn btn-secondary btn-large btn-arrow">Order a video</button>
         </div>
       </div>
-      <p class="pricing-note">After payment you'll fill in a short form with your topic. We'll email your finished video straight to your inbox.</p>
+      <p class="pricing-foot">After payment, you'll fill in a short form with your topic and character style. Your finished video lands in your inbox shortly after.</p>
     </div>
   </section>
 
   <section id="faq">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow">05 / FAQ</div>
-        <h2>Questions</h2>
+    <div class="wrap">
+      <div class="faq-head">
+        <h2>Questions.</h2>
       </div>
       <div class="faq-list">
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">
+            <span class="qn">01</span>
+            <span>Is YouTube automation still worth doing?</span>
+            <span class="faq-toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Yes — when the videos are made right. The recent demonetization waves hit channels running on generic AI slop. The ones still pulling thousands of views and getting monetized fast are the channels with actual production value: real scripts, consistent character, scenes that match the words. That's exactly what Klipt is built to produce — quietly giving you a competitive edge while the lazier operators quit.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="qn">02</span>
             <span>What topics work best?</span>
             <span class="faq-toggle" aria-hidden="true"></span>
           </button>
-          <div class="faq-a"><p>Currently optimised for personal finance and money psychology. Examples: &ldquo;Why most people never build wealth&rdquo;, &ldquo;The psychology of lifestyle inflation&rdquo;, &ldquo;How to actually save your first $10k.&rdquo; The more specific your topic, the better the result.</p></div>
+          <div class="faq-a"><div class="faq-a-inner"><p>Currently optimised for personal finance and money psychology. Examples: &ldquo;Why most people never build wealth&rdquo;, &ldquo;The psychology of lifestyle inflation&rdquo;, &ldquo;How to actually save your first $10k.&rdquo; The more specific your topic, the better the result.</p></div></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">
+            <span class="qn">03</span>
             <span>What happens after I pay?</span>
             <span class="faq-toggle" aria-hidden="true"></span>
           </button>
-          <div class="faq-a"><p>You'll be redirected to a short form where you submit your topic and choose a character style. That's all we need. We'll handle the rest and email you when your video is ready.</p></div>
+          <div class="faq-a"><div class="faq-a-inner"><p>You'll be redirected to a short form where you submit your topic and choose a character style. That's all we need. We'll handle the rest and email you when your video is ready.</p></div></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">
+            <span class="qn">04</span>
             <span>Can I use this for my YouTube channel?</span>
             <span class="faq-toggle" aria-hidden="true"></span>
           </button>
-          <div class="faq-a"><p>Yes. You receive the full MP4 file and can upload it wherever you want. No watermarks, no restrictions.</p></div>
+          <div class="faq-a"><div class="faq-a-inner"><p>Yes. You receive the full MP4 file and can upload it wherever you want. No watermarks, no restrictions.</p></div></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">
+            <span class="qn">05</span>
             <span>What if I'm not happy with the result?</span>
             <span class="faq-toggle" aria-hidden="true"></span>
           </button>
-          <div class="faq-a"><p>Your first video is guaranteed. If you're not satisfied with the output, we'll refund your $5 — no questions asked. Email us at <a href="mailto:haithama125@gmail.com">haithama125@gmail.com</a>.</p></div>
+          <div class="faq-a"><div class="faq-a-inner"><p>Your first video is guaranteed. If you're not satisfied with the output, we'll refund your $5 — no questions asked. Email us at <a href="mailto:haithama125@gmail.com">haithama125@gmail.com</a>.</p></div></div>
         </div>
       </div>
     </div>
@@ -1055,35 +1424,33 @@
 
   <section class="cta-final">
     <div class="cta-final-inner">
-      <div class="eyebrow" style="justify-content:center;">Last stop</div>
-      <h2>Your next video is one click away</h2>
-      <p>Try it for $5. If it's not good, we'll refund you.</p>
-      <button type="button" data-order="first" class="btn btn-primary btn-large btn-arrow">Order Your First Video — $5</button>
+      <h2>Get the <em>edge</em><br/>before everyone else quits.</h2>
+      <p>Most operators are leaving YouTube automation. The smart ones are doubling down with better tools. Try Klipt for five dollars — full refund if it isn't good.</p>
+      <button type="button" data-order="first" class="btn btn-primary btn-large btn-arrow">Order your first video — $5</button>
     </div>
   </section>
 
   <footer>
-    <div class="footer-logo">VidFactory AI</div>
-    <div>Questions? <a href="mailto:haithama125@gmail.com">haithama125@gmail.com</a></div>
-    <div>© 2026</div>
+    <div class="footer-logo">Klipt</div>
+    <div class="footer-mid">Questions? <a href="mailto:haithama125@gmail.com">haithama125@gmail.com</a></div>
+    <div class="footer-right">© Klipt 2026</div>
   </footer>
 
   <div class="modal" id="orderModal" aria-hidden="true">
     <div class="modal-backdrop" data-close></div>
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div class="modal-corners"><span></span><span></span><span></span><span></span></div>
       <button type="button" class="modal-close" data-close aria-label="Close">×</button>
 
       <div class="modal-head">
-        <div class="eyebrow">Order / <span id="modalTier">First video — $5</span></div>
-        <h2 id="modalTitle">Tell us about your video</h2>
+        <div class="order-tag">Order form · <span id="modalTier">First video — $5</span></div>
+        <h2 id="modalTitle">Tell us about the <em>video</em>.</h2>
         <p class="modal-sub">Two minutes. We'll have everything we need.</p>
       </div>
 
       <form id="orderForm" novalidate>
         <input type="hidden" name="access_key" value="af496cfe-ee2d-4fbb-bf48-9126fdb853d0" />
-        <input type="hidden" name="subject" value="New VidFactory order" />
-        <input type="hidden" name="from_name" value="VidFactory AI" />
+        <input type="hidden" name="subject" value="New Klipt order" />
+        <input type="hidden" name="from_name" value="Klipt" />
         <input type="hidden" name="tier" id="formTier" value="first" />
         <input type="hidden" name="price" id="formPrice" value="$5" />
 
@@ -1117,7 +1484,7 @@
           <textarea id="f-character" name="main_character" rows="2" placeholder="Describe the main character — look, vibe, personality…"></textarea>
           <input id="f-character-image" name="main_character_image" type="file" accept="image/*" class="file-input" />
           <label for="f-character-image" class="file-label">
-            <span class="file-cta">Upload reference image</span>
+            <span class="file-cta">Upload reference</span>
             <span class="file-name" id="characterFileName">No file chosen</span>
           </label>
         </div>
@@ -1134,7 +1501,7 @@
           </button>
         </div>
 
-        <p class="form-fine">// Next: secure Stripe checkout for <span id="formPriceDisplay">$5</span>. You won't be charged until you confirm there.</p>
+        <p class="form-fine">Next, secure Stripe checkout for <span id="formPriceDisplay">$5</span>. You won't be charged until you confirm.</p>
       </form>
     </div>
   </div>
@@ -1158,6 +1525,21 @@
           }
         });
       });
+
+      /* Hero wheel — rotating active item */
+      var wheel = document.getElementById('heroWheel');
+      if (wheel) {
+        var wheelItems = wheel.querySelectorAll('li');
+        var wheelIdx = 0;
+        function tickWheel() {
+          wheelItems.forEach(function (item, idx) {
+            item.classList.toggle('is-active', idx === wheelIdx);
+          });
+          wheelIdx = (wheelIdx + 1) % wheelItems.length;
+        }
+        tickWheel();
+        setInterval(tickWheel, 1800);
+      }
 
       /* Order modal + form */
       var STRIPE_LINKS = {
