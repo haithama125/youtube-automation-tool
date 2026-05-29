@@ -4,6 +4,14 @@
 *.webm
 *.mkv
 
+# Local image assets
+main-character.jpg
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+
 # macOS
 .DS_Store
 
